@@ -2,6 +2,6 @@
 
 exports[`edit user page can show error message 1`] = `"<div>Something went wrong: Error: Failed to load</div>"`;
 
-exports[`edit user page can show information about existing users 1`] = `"<form><h1>Edit a user (Peppa)</h1><div><label>First name: <input type=\\"text\\" value=\\"Peppa\\"></label></div><div><label>Last name: <input type=\\"text\\" value=\\"Gris\\"></label></div><button>Submit</button></form>"`;
+exports[`edit user page can show information about existing users 1`] = `"<form><h1>Edit a user (Peppa)</h1><div><label>First name: <input type=\\"text\\" value=\\"Peppa\\"></label></div><div><label>Last name: <input type=\\"text\\" value=\\"Gris\\"></label></div><div><label>Email: <input type=\\"text\\" value=\\"peppa@gris.no\\"></label></div><button>Submit</button></form>"`;
 
 exports[`edit user page can show loading screen 1`] = `"<h1>Loading...</h1>"`;

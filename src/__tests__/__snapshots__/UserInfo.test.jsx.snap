@@ -2,4 +2,4 @@
 
 exports[`list user page can show error message 1`] = `"<div>Something went wrong: Error: Failed to load</div>"`;
 
-exports[`list user page shows users on dom 1`] = `"<div><h1>List users</h1><li><a href=\\"/users/1/edit\\">Sarah van Dijk</a></li></div>"`;
+exports[`list user page shows users on dom 1`] = `"<div><h1>List users</h1><li><a href=\\"/users/1/edit\\">Guri Malla guri@malla.no</a></li></div>"`;

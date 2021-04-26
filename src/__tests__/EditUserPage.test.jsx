@@ -17,6 +17,7 @@ describe("edit user page", () => {
     const getUser = () => ({
       firstName: "Peppa",
       lastName: "Gris",
+      email: "peppa@gris.no"
     });
     const container = await renderForTest(
       <EditUserPage userApi={{ getUser }} />
@@ -53,6 +54,7 @@ describe("edit user page", () => {
     const user = {
       firstName: "Erna",
       lastName: "Solberg",
+      email: "erna@solberg.no"
     };
     const getUser = () => user;
     const updateUser = jest.fn();
@@ -60,12 +62,12 @@ describe("edit user page", () => {
       <EditUserPage userApi={{ getUser, updateUser }} />
     );
     Simulate.change(container.querySelector("input"), {
-      target: { value: "Judas" },
+      target: { value: "Jonas" },
     });
     Simulate.submit(container.querySelector("form"));
     expect(updateUser).toBeCalledWith(undefined, {
       ...user,
-      firstName: "Judas",
+      firstName: "Jonas",
     });
   });
 });

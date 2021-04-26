@@ -25,6 +25,7 @@ describe("create user page", () => {
     expect(createUser).toBeCalledWith({
       firstName: "test",
       lastName: "",
+      email: ""
     });
   });
 });

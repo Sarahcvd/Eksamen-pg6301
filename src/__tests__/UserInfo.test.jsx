@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router";
 import { UserInfo } from "../client/UserInfo";
 
 const userApi = {
-  listUsers: async () => [{ id: 1, firstName: "Sarah", lastName: "van Dijk" }],
+  listUsers: async () => [{ id: 1, firstName: "Guri", lastName: "Malla", email: "guri@malla.no" }],
 };
 
 async function renderForTest(child) {
@@ -29,7 +29,7 @@ describe("list user page", () => {
       );
     });
     expect(container.innerHTML).toMatchSnapshot();
-    expect(container.querySelector("li").textContent).toEqual("Sarah van Dijk");
+    expect(container.querySelector("li").textContent).toEqual("Guri Malla guri@malla.no");
   });
 
   it("can show error message", async () => {

@@ -23,6 +23,7 @@ describe("api router", () => {
       .send({
         firstName: "Erna",
         lastName: "Solberg",
+          email: "erna@solberg.no"
       })
       .expect(201);
     await request(app)
