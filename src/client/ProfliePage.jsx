@@ -3,9 +3,9 @@ import { useLoading } from "./lib/useLoading";
 import { ErrorView } from "./Components/ErrorView";
 import { LoadingView } from "./Components/LoadingView";
 
-export function ProfilePage({ loadProfile }) {
+export function ProfilePage({ userApi }) {
   const { data, error, loading, reload } = useLoading(
-    async () => await loadProfile()
+    async () => await userApi.loadProfile()
   );
 
   if (error) {

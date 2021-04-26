@@ -37,6 +37,12 @@ export function Application() {
         method: "POST",
         json: { username, password },
       }),
+    loadProfile: async () =>
+      await fetchJson("http://localhost:3000/api/profile", {
+        headers: {
+          ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
+        },
+      }),
   };
 
   const [access_token, setAccess_token] = useState();
@@ -48,13 +54,13 @@ export function Application() {
       "916384078084-0vdudp3eluljf617umqmtoeuu870iru0.apps.googleusercontent.com",
   };
 
-  function loadProfile() {
+  /*function loadProfile() {
     return fetchJson("http://localhost:3000/api/profile", {
       headers: {
         ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
       },
     });
-  }
+  }*/
 
   return (
     <>
@@ -64,7 +70,7 @@ export function Application() {
       <main>
         <Switch>
           <Route path={"/profile"}>
-            <ProfilePage loadProfile={loadProfile} />
+            <ProfilePage userApi={userApi} />
           </Route>
           <Route path={"/create"}>
             {!access_token ? (

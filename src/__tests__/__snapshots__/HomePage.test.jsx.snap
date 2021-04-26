@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`home page can show home page 1`] = `"<div id=\\"home-page-container\\"><h1>Welcome to this awesome application</h1><h4>Login</h4><li><a href=\\"/profile\\">Profile Page</a></li><h4>User Info</h4><li><a href=\\"/create\\">Add a New User</a></li><li><a href=\\"/userInfo\\">See User Info Page</a></li><h4>Chat</h4><li><a href=\\"/chat\\">Chat</a></li></div>"`;
