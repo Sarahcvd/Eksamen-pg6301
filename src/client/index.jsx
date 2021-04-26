@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Application } from "./Application";
 import { fetchJson, postJson } from "./lib/http";
 import { BrowserRouter } from "react-router-dom";
 
+const [access_token, setAccess_token] = useState();
 const userApi = {
   listUsers: async () => await fetchJson("http://localhost:3000/api/users"),
   getUser: async (id) =>
@@ -24,7 +25,12 @@ const userApi = {
       method: "POST",
       json: { username, password },
     }),
-  showProfile: async () => await fetchJson("http://localhost:3000/api/profile"),
+  showProfile: async () =>
+    await fetchJson("http://localhost:3000/api/profile", {
+      headers: {
+        ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
+      },
+    }),
 };
 
 ReactDOM.render(
