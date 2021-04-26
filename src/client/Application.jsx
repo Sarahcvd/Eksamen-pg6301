@@ -8,17 +8,18 @@ import { CreateUserPage } from "./CreateUserPage";
 import { HomePage } from "./HomePage";
 import { UserInfo } from "./UserInfo";
 import { ProfilePage } from "./ProfliePage";
+import { AuthorizationCallback } from "./AuthorizationCallback";
 
 export function Application({ userApi }) {
   return (
     <>
       <nav>
-        <Link to={"/"}>Back to home </Link>
+        <Link to={"/home"}>Back to home </Link>
       </nav>
       <main>
         <Switch>
-          <Route path={"/profile"}>
-            <ProfilePage userApi={userApi} />
+          <Route path={"/home"}>
+            <HomePage />
           </Route>
           <Route path={"/create"}>
             <CreateUserPage userApi={userApi} />
@@ -32,11 +33,17 @@ export function Application({ userApi }) {
           <Route path={"/login"}>
             <LoginPage userApi={userApi} />
           </Route>
+          <Route path={"/oauth2callback"}>
+            <AuthorizationCallback />
+          </Route>
           <Route path={"/users/:id/edit"}>
             <EditUserPage userApi={userApi} />
           </Route>
+          <Route exact path={"/profile"}>
+            <ProfilePage userApi={userApi} />
+          </Route>
           <Route exact path={"/"}>
-            <HomePage />
+            <ProfilePage userApi={userApi} />
           </Route>
           <Route>
             <h1>Not Found</h1>

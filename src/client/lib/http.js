@@ -17,6 +17,12 @@ export async function fetchJson(url) {
   return await res.json();
 }
 
+export async function fetchJsonForProfile(url, options) {
+  const res = await fetch(url, options);
+  checkError(res, url);
+  return await res.json();
+}
+
 export async function postJson(url, { json, method }) {
   const res = await fetch(url, {
     body: JSON.stringify(json),

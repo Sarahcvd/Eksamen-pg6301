@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Application } from "./Application";
-import { fetchJson, postJson } from "./lib/http";
+import { fetchJson, fetchJsonForProfile, postJson } from "./lib/http";
 import { BrowserRouter } from "react-router-dom";
 
+const access_token = localStorage.getItem("access_token");
 const userApi = {
   listUsers: async () => await fetchJson("http://localhost:3000/api/users"),
   getUser: async (id) =>
@@ -24,7 +25,15 @@ const userApi = {
       method: "POST",
       json: { username, password },
     }),
-  showProfile: async () => await fetchJson("http://localhost:3000/api/profile"),
+  showProfile: async () =>
+    await fetchJsonForProfile("http://localhost:3000/api/profile", {
+      method: "POST",
+      body: JSON.stringify({}),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${access_token}`,
+      },
+    }),
 };
 
 ReactDOM.render(
