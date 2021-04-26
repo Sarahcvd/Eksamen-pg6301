@@ -4,13 +4,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const wsServer = require("./websocket");
 const userApi = require("./apiRouter");
-const cookieParser = require("cookie-parser");
 const fetch = require("node-fetch");
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cookieParser());
 
 const discoveryURL =
   "https://accounts.google.com/.well-known/openid-configuration";
@@ -37,13 +35,6 @@ app.get("/api/profile", async (req, res) => {
   });
 
   return res.json(userinfo);
-  /*
-  PASSPORT
-  if (!req.user) {
-    return res.status(401).send();
-  }
-  const { username } = req.user;
-  res.json({ username });*/
 });
 
 app.use(cors());

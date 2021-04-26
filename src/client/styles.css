@@ -40,4 +40,5 @@ footer form > input {
     border: 3px solid black;
     border-radius: 6px;
     opacity: 80%;
+    list-style-type: none;
 }

@@ -9,9 +9,6 @@ export function HomePage() {
       <li>
         <Link to={"/profile"}>Profile Page</Link>
       </li>
-      <li>
-        <Link to={"/login"}>Log In</Link>
-      </li>
       <h4>User Info</h4>
       <li>
         <Link to={"/create"}>Add a New User</Link>

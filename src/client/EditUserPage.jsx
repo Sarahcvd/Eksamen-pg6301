@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useLoading } from "./lib/useLoading";
 import { ErrorView } from "./Components/ErrorView";
 import { LoadingView } from "./Components/LoadingView";
@@ -37,6 +37,7 @@ function EditUserForm({ onSubmit, user }) {
 
 export function EditUserPage({ userApi }) {
   const { id } = useParams();
+  const history = useHistory();
 
   const { data: user, error, loading, reload } = useLoading(
     async () => await userApi.getUser(id),
@@ -46,6 +47,7 @@ export function EditUserPage({ userApi }) {
   async function handleSubmit(e, { firstName, lastName, email }) {
     e.preventDefault();
     await userApi.updateUser(id, { firstName, lastName, email });
+    history.push("/");
   }
 
   if (error) {

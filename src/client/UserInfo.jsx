@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { LoadingView } from "./Components/LoadingView";
 import { ErrorView } from "./Components/ErrorView";
 import { useLoading } from "./lib/useLoading";

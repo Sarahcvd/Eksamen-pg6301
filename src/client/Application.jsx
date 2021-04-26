@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import { ChatPage } from "./ChatPage";
 import { LoginPage } from "./LoginPage";
@@ -16,7 +16,11 @@ export function Application() {
   const userApi = {
     listUsers: async () => await fetchJson("http://localhost:3000/api/users"),
     getUser: async (id) =>
-      await fetchJson(`http://localhost:3000/api/users/${id}`),
+      await fetchJson(`http://localhost:3000/api/users/${id}`, {
+        headers: {
+          ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
+        },
+      }),
     createUser: async ({ firstName, lastName, email }) => {
       return postJson("http://localhost:3000/api/users", {
         method: "POST",
@@ -45,7 +49,7 @@ export function Application() {
   };
 
   function loadProfile() {
-    return fetchJson("/api/profile", {
+    return fetchJson("http://localhost:3000/api/profile", {
       headers: {
         ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
       },
@@ -63,13 +67,21 @@ export function Application() {
             <ProfilePage loadProfile={loadProfile} />
           </Route>
           <Route path={"/create"}>
-            <CreateUserPage userApi={userApi} />
+            {!access_token ? (
+              <Redirect to={"/"} />
+            ) : (
+              <CreateUserPage userApi={userApi} />
+            )}
           </Route>
           <Route path={"/userInfo"}>
-            <UserInfo userApi={userApi} />
+            {!access_token ? (
+              <Redirect to={"/"} />
+            ) : (
+              <UserInfo userApi={userApi} />
+            )}
           </Route>
           <Route path={"/chat"}>
-            <ChatPage />
+            {!access_token ? <Redirect to={"/"} /> : <ChatPage />}
           </Route>
           <Route exact path={"/login"}>
             <LoginPage identityProvider={googleIdentityProvider} />
@@ -81,7 +93,11 @@ export function Application() {
             />
           </Route>
           <Route path={"/users/:id/edit"}>
-            <EditUserPage userApi={userApi} />
+            {!access_token ? (
+              <Redirect to={"/"} />
+            ) : (
+              <EditUserPage userApi={userApi} />
+            )}
           </Route>
           <Route exact path={"/"}>
             <HomePage />

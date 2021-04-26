@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 import { ChatView } from "./ChatView";
 
 export function ChatPage() {
@@ -18,14 +19,14 @@ function ChatLoginPage({ onLogin }) {
   }
   return (
     <div>
-      <h1>Please log in</h1>
+      <h1>Please Enter Username</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button>Login</button>
+        <button>Start Chat</button>
       </form>
     </div>
   );

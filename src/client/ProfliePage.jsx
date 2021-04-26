@@ -20,6 +20,7 @@ export function ProfilePage({ loadProfile }) {
     <div>
       <h1>Your profile</h1>
       <div>Name: {data.name}</div>
+      <div>Email: {data.email}</div>
     </div>
   );
 }
