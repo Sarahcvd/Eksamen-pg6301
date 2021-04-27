@@ -6,7 +6,7 @@ export function ErrorView({ error }) {
     return (
       <div>
         You are not logged in{" "}
-        <Link to={"/login"}>
+        <Link to={"/"}>
           <button>Log in</button>
         </Link>
       </div>

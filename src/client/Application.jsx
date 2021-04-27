@@ -57,7 +57,7 @@ export function Application() {
   return (
     <>
       <nav>
-        <Link to={"/"}>Back to home </Link>
+        <Link to={"/home"}>Back to home </Link>
       </nav>
       <main>
         <Switch>
@@ -81,7 +81,7 @@ export function Application() {
           <Route path={"/chat"}>
             {!access_token ? <Redirect to={"/"} /> : <ChatPage />}
           </Route>
-          <Route exact path={"/login"}>
+          <Route exact path={"/"}>
             <LoginPage identityProvider={googleIdentityProvider} />
           </Route>
           <Route path={"/login/callback"}>
@@ -97,7 +97,7 @@ export function Application() {
               <EditUserPage userApi={userApi} />
             )}
           </Route>
-          <Route exact path={"/"}>
+          <Route path={"/home"}>
             <HomePage />
           </Route>
           <Route>

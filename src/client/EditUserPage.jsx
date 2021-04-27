@@ -47,7 +47,7 @@ export function EditUserPage({ userApi }) {
   async function handleSubmit(e, { firstName, lastName, email }) {
     e.preventDefault();
     await userApi.updateUser(id, { firstName, lastName, email });
-    history.push("/");
+    history.push("/home");
   }
 
   if (error) {

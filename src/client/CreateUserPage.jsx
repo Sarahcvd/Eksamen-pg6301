@@ -14,7 +14,7 @@ export function CreateUserPage({ userApi }) {
     async () => {
       await userApi.createUser({ firstName, lastName, email });
     },
-    () => history.push("/")
+    () => history.push("/home")
   );
 
   return (

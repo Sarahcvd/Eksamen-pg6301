@@ -45,7 +45,7 @@ export function ChatView({ chatPreview, username }) {
         <h1>Chat page</h1>
       </header>
       <main id="chatLog">
-        {chatOutput.map(({ message, id, username }) => (
+        {chatOutput?.map(({ message, id, username }) => (
           <div className="message" key={id}>
             <strong>{username}: </strong>
             {message}

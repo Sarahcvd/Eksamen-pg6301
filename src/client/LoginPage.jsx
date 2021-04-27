@@ -17,7 +17,7 @@ export function LoginPage({ identityProvider }) {
   }
   return (
     <div>
-      <h1>Log in</h1>
+      <h1>Log in with Google</h1>
       <button onClick={handleLogin}>Log in</button>
     </div>
   );
