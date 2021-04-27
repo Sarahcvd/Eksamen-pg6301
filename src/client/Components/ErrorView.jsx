@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 
 export function ErrorView({ error }) {
@@ -6,7 +6,7 @@ export function ErrorView({ error }) {
     return (
       <div>
         You are not logged in{" "}
-        <Link to={"/login"}>
+        <Link to={"/"}>
           <button>Log in</button>
         </Link>
       </div>

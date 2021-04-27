@@ -44,7 +44,6 @@ apiRouter.put("/:id", (req, res) => {
 
 apiRouter.post("", (req, res) => {
   const { firstName, lastName, email } = req.body;
-  console.log(req.body);
   userApi.push({ firstName, lastName, email, id: userApi.length + 1 });
   res.status(201).end();
 });

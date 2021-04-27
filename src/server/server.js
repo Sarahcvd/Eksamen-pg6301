@@ -4,47 +4,37 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const wsServer = require("./websocket");
 const userApi = require("./apiRouter");
-const cookieParser = require("cookie-parser");
-const session = require("express-session");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const fetch = require("node-fetch");
 
 const app = express();
 
-app.use(
-  session({
-    secret: "32bJS7s5k5al",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
 app.use(bodyParser.json());
-app.use(cookieParser());
 
-passport.use(
-  new LocalStrategy((username, password, done) => {
-    if (username === "sarah" && password === "123456") {
-      done(null, { username, is_admin: true });
-    } else {
-      done(null, false, { message: "Invalid username/password" });
-    }
-  })
-);
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((id, done) => done(null, id));
-app.use(passport.initialize());
-app.use(passport.session());
+const discoveryURL =
+  "https://accounts.google.com/.well-known/openid-configuration";
 
-app.get("/api/profile", (req, res) => {
-  if (!req.user) {
-    return res.status(401).send();
+async function fetchJson(url, options) {
+  const res = await fetch(url, options);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${url}: ${res.status} ${res.statusText}`);
   }
-  const { username } = req.user;
-  res.json({ username });
-});
+  return await res.json();
+}
 
-app.post("/api/login", passport.authenticate("local"), (req, res) => {
-  res.end();
+app.get("/api/profile", async (req, res) => {
+  const Authorization = req.header("Authorization");
+  if (!Authorization) {
+    return res.sendStatus(401);
+  }
+
+  const { userinfo_endpoint } = await fetchJson(discoveryURL);
+  const userinfo = await fetchJson(userinfo_endpoint, {
+    headers: {
+      Authorization,
+    },
+  });
+
+  return res.json(userinfo);
 });
 
 app.use(cors());
