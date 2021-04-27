@@ -1,13 +1,13 @@
 # Eksamen Webutvikling og API-design
 
 ## Antakelser jeg har tatt om oppgaven 
-Jeg har gått ut i fra at vi skal lage en chat-funksjonalitet og at den er en selvstendig del i applikasjonen og den henger ikke sammen med login eller å kunne legge til brukere 
+Jeg har gått ut i fra at vi skal lage en chat og at den skal være en selvstendig del i applikasjonen, den henger ikke sammen med login eller å kunne legge til brukere 
 
 Å legge til brukere vil ikke påvirke hvordan chatten fungerer
 
-Chat-meldinger blir lagret med websockets på serversiden og skrevet ut med tilhørende brukernavn 
+Chat-meldinger bruker websockets på serversiden og blir skrevet ut med tilhørende brukernavn 
 
-#### Functional requirements
+#### Funksjonelle krav
 Oppgave 1 - Uten å logge inn med Google vil man ikke ha tilgang til noe annen funksjonalitet. Dermed oppfyller det kravet på oppgave 1.
 
 Oppgave 2 - Man får kun tilgang til chatten om man er logget inn med Google. 
@@ -18,6 +18,12 @@ Oppgave 3/4 - Siden man må skrive inn brukernavn så er det mulig å se hvilke 
 
 
 Utover disse kravene har jeg fått til Google Auhenicator, websockets og cors.
+
+##### Svakheter 
+
+* Jeg har ikke fått til å gi en varsel om man har mottatt en ny melding
+
+* Meldingene blir ikke lagret om man går ut av chatten 
 
 #
 ### Kjøre applikasjonen 
