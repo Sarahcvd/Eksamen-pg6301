@@ -54,14 +54,6 @@ export function Application() {
       "916384078084-0vdudp3eluljf617umqmtoeuu870iru0.apps.googleusercontent.com",
   };
 
-  /*function loadProfile() {
-    return fetchJson("http://localhost:3000/api/profile", {
-      headers: {
-        ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
-      },
-    });
-  }*/
-
   return (
     <>
       <nav>
