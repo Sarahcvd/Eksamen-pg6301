@@ -36,7 +36,7 @@ describe("chat view page", () => {
       "Johannes: Hello"
     );
     expect(container.querySelector("header h1").textContent).toEqual(
-      "Chat page"
+      "Chat With Friends"
     );
     expect(container).toMatchSnapshot();
   });

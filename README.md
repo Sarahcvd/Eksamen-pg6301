@@ -60,7 +60,7 @@ Her er det en oversikt over alle funksjoner som finnes
 For å kjøre tester skriver man `npm test` 
 * Her vil man automatisk få frem coverage på samtlige filer i prosjektet 
 
-Jeg har 47% testdekning 
+Jeg har 48% testdekning 
 
 ![image](https://user-images.githubusercontent.com/54410259/116319235-73958f80-a7b6-11eb-86ed-4f1dedc55880.png)
 

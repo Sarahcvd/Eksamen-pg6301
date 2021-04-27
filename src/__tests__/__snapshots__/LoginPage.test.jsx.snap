@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`login page display login page 1`] = `"<div><h1>Log in with Google</h1><button>Log in</button></div>"`;
+exports[`login page display login page 1`] = `"<div class=\\"login-container\\"><h1>Log in with Google to continue</h1><button>Log in</button></div>"`;

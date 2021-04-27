@@ -2,6 +2,6 @@
 
 exports[`profile page test can show error message 1`] = `"<div>Something went wrong: Error: Failed to load</div>"`;
 
-exports[`profile page test can show information about logged in user 1`] = `"<div><h1>Your profile</h1><div>Name: Johannes</div><div>Email: </div></div>"`;
+exports[`profile page test can show information about logged in user 1`] = `"<div class=\\"profile-container\\"><h1>Your profile</h1><div>Name: Johannes</div><div>Email: </div></div>"`;
 
 exports[`profile page test shows loading  1`] = `"<h1>Loading...</h1>"`;

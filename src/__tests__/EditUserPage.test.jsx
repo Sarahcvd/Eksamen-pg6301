@@ -17,14 +17,14 @@ describe("edit user page", () => {
     const getUser = () => ({
       firstName: "Peppa",
       lastName: "Gris",
-      email: "peppa@gris.no"
+      email: "peppa@gris.no",
     });
     const container = await renderForTest(
       <EditUserPage userApi={{ getUser }} />
     );
     expect(container.innerHTML).toMatchSnapshot();
     expect(container.querySelector("h1").textContent).toEqual(
-      "Edit a user (Peppa)"
+      "Edit user: Peppa"
     );
   });
 
@@ -54,7 +54,7 @@ describe("edit user page", () => {
     const user = {
       firstName: "Erna",
       lastName: "Solberg",
-      email: "erna@solberg.no"
+      email: "erna@solberg.no",
     };
     const getUser = () => user;
     const updateUser = jest.fn();
