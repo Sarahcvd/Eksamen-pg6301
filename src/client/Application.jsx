@@ -16,11 +16,7 @@ export function Application() {
   const userApi = {
     listUsers: async () => await fetchJson("http://localhost:3000/api/users"),
     getUser: async (id) =>
-      await fetchJson(`http://localhost:3000/api/users/${id}`, {
-        headers: {
-          ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
-        },
-      }),
+      await fetchJson(`http://localhost:3000/api/users/${id}`),
     createUser: async ({ firstName, lastName, email }) => {
       return postJson("http://localhost:3000/api/users", {
         method: "POST",
@@ -60,7 +56,7 @@ export function Application() {
         {!access_token ? (
           <Redirect to={"/"} />
         ) : (
-          <Link to={"/home"}>Back to home </Link>
+          <Link to={"/home"}>Back to home</Link>
         )}
       </nav>
       <main>

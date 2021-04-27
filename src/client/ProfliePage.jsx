@@ -17,7 +17,7 @@ export function ProfilePage({ userApi }) {
   }
 
   return (
-    <div>
+    <div className={"profile-container"}>
       <h1>Your profile</h1>
       <div>Name: {data.name}</div>
       <div>Email: {data.email}</div>

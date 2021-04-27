@@ -17,19 +17,22 @@ function EditUserForm({ onSubmit, user }) {
   }
 
   return (
-    <form onSubmit={submit}>
-      <h1>Edit a user ({firstName})</h1>
+    <form onSubmit={submit} className={"user-container"}>
+      <h1>Edit user: {firstName}</h1>
       <InputField
-        label={"First name"}
+        label={"First Name"}
         value={firstName}
         onChangeValue={setFirstName}
       />
+      <br />
       <InputField
-        label={"Last name"}
+        label={"Last Name"}
         value={lastName}
         onChangeValue={setLastName}
       />
+      <br />
       <InputField label={"Email"} value={email} onChangeValue={setEmail} />
+      <br />
       <button>Submit</button>
     </form>
   );

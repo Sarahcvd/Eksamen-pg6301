@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { ChatView } from "./ChatView";
+import { InputField } from "./Components/InputField";
 
 export function ChatPage() {
   const [username, setUsername] = useState();
@@ -18,14 +19,15 @@ function ChatLoginPage({ onLogin }) {
     onLogin(username);
   }
   return (
-    <div>
+    <div className={"chat-login"}>
       <h1>Please Enter Username</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+        <InputField
+          label={"Username"}
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChangeValue={setUsername}
         />
+        <br />
         <button>Start Chat</button>
       </form>
     </div>

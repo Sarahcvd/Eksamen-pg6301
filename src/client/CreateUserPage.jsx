@@ -18,27 +18,30 @@ export function CreateUserPage({ userApi }) {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={"user-container"}>
       {submitting && <div>Please wait</div>}
       {error && <div>Error: {error.toString()}</div>}
-      <h1>Add a new user</h1>
+      <h1>Add a New User</h1>
       <InputField
         value={firstName}
-        label={"First name"}
+        label={"First Name"}
         onChangeValue={setFirstName}
       />
+      <br />
       <InputField
         value={lastName}
         label={"Last Name"}
         onChangeValue={setLastName}
       />
+      <br />
       <InputField
         value={email}
         type={"email"}
         label={"Email"}
         onChangeValue={setEmail}
       />
-      <button disabled={submitting}>Submit</button>
+      <br />
+      <button disabled={submitting}>Add</button>
     </form>
   );
 }

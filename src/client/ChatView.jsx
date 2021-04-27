@@ -42,7 +42,7 @@ export function ChatView({ chatPreview, username }) {
   return (
     <div id="chatContainer">
       <header>
-        <h1>Chat page</h1>
+        <h1>Chat With Friends</h1>
       </header>
       <main id="chatLog">
         {chatOutput?.map(({ message, id, username }) => (

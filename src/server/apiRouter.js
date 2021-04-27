@@ -23,21 +23,19 @@ const userApi = [
 ];
 
 apiRouter.get("", (req, res) => {
-  //console.log(userApi);
   res.json(userApi);
 });
 
 apiRouter.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const user = userApi.find((b) => b.id === id);
+  const user = userApi.find((u) => u.id === id);
   res.json(user);
 });
 
 apiRouter.put("/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const userIndex = userApi.findIndex((b) => b.id === id);
+  const userIndex = userApi.findIndex((u) => u.id === id);
   const { firstName, lastName, email } = req.body;
-  console.log(req.body);
   userApi[userIndex] = { firstName, lastName, email, id };
   res.status(200).end();
 });

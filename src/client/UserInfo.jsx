@@ -17,8 +17,9 @@ export function UserInfo({ userApi }) {
     return <LoadingView />;
   }
   return (
-    <div>
-      <h1>List users</h1>
+    <div className={"user-container"}>
+      <h1>Registered users</h1>
+      <p>(You can click on a user to edit it)</p>
       {users.map(({ id, firstName, lastName, email }) => (
         <li key={id}>
           <Link to={`/users/${id}/edit`}>

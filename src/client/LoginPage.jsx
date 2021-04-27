@@ -16,8 +16,8 @@ export function LoginPage({ identityProvider }) {
       authorization_endpoint + "?" + new URLSearchParams(params);
   }
   return (
-    <div>
-      <h1>Log in with Google</h1>
+    <div className={"login-container"}>
+      <h1>Log in with Google to continue</h1>
       <button onClick={handleLogin}>Log in</button>
     </div>
   );

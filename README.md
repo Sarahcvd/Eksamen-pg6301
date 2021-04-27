@@ -8,14 +8,16 @@ Jeg har gått ut i fra at vi skal lage en chat-funksjonalitet og at den er en se
 Chat-meldinger blir lagret med websockets på serversiden og skrevet ut med tilhørende brukernavn 
 
 #### Functional requirements
-Oppgave 1 - Uten å logge inn med Google vil man ikke ha tilgang til noe annen funksjonalitet 
+Oppgave 1 - Uten å logge inn med Google vil man ikke ha tilgang til noe annen funksjonalitet. Dermed oppfyller det kravet på oppgave 1.
 
 Oppgave 2 - Man får kun tilgang til chatten om man er logget inn med Google. 
 Man må også legge inn et brukernavn slik at man vet hvilken bruker som skriver hva. 
 På den måten kan flere brukere snakke sammen. 
 
-Oppgave 3 - Siden man må skrive inn brukernavn så er det mulig å se hvilke meldinger man selv har sendt
+Oppgave 3/4 - Siden man må skrive inn brukernavn så er det mulig å se hvilke meldinger man selv har sendt
 
+
+Utover disse kravene har jeg fått til Google Auhenicator, websockets og cors.
 
 #
 ###Kjøre applikasjonen 
