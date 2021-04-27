@@ -42,3 +42,8 @@ footer form > input {
     opacity: 80%;
     list-style-type: none;
 }
+
+a{
+    text-decoration-color: black;
+    color: black;
+}

@@ -57,7 +57,11 @@ export function Application() {
   return (
     <>
       <nav>
-        <Link to={"/home"}>Back to home </Link>
+        {!access_token ? (
+          <Redirect to={"/"} />
+        ) : (
+          <Link to={"/home"}>Back to home </Link>
+        )}
       </nav>
       <main>
         <Switch>

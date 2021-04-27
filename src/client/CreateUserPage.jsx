@@ -32,7 +32,12 @@ export function CreateUserPage({ userApi }) {
         label={"Last Name"}
         onChangeValue={setLastName}
       />
-      <InputField value={email} label={"Email"} onChangeValue={setEmail} />
+      <InputField
+        value={email}
+        type={"email"}
+        label={"Email"}
+        onChangeValue={setEmail}
+      />
       <button disabled={submitting}>Submit</button>
     </form>
   );

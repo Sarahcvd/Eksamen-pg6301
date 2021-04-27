@@ -5,7 +5,6 @@ export function HomePage() {
   return (
     <div id={"home-page-container"}>
       <h1>Welcome to this awesome application</h1>
-      <h4>Login</h4>
       <li>
         <Link to={"/profile"}>Profile Page</Link>
       </li>
@@ -14,7 +13,7 @@ export function HomePage() {
         <Link to={"/create"}>Add a New User</Link>
       </li>
       <li>
-        <Link to={"/userInfo"}>See User Info Page</Link>
+        <Link to={"/userInfo"}>See User Info</Link>
       </li>
       <h4>Chat</h4>
       <li>
