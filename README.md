@@ -1,6 +1,6 @@
 # Eksamen Webutvikling og API-design
 
-##Antakelser jeg har tatt om oppgaven 
+## Antakelser jeg har tatt om oppgaven 
 Jeg har gått ut i fra at vi skal lage en chat-funksjonalitet og at den er en selvstendig del i applikasjonen og den henger ikke sammen med login eller å kunne legge til brukere 
 
 Å legge til brukere vil ikke påvirke hvordan chatten fungerer
@@ -20,7 +20,7 @@ Oppgave 3/4 - Siden man må skrive inn brukernavn så er det mulig å se hvilke 
 Utover disse kravene har jeg fått til Google Auhenicator, websockets og cors.
 
 #
-###Kjøre applikasjonen 
+### Kjøre applikasjonen 
 1. Unzip prosjektet til én mappe, og naviger til det i CLI
 2. Kjør kommando: `npm install`
     * Dette setter opp alle dependencies fra package.json
