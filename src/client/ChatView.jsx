@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 
-export function ChatView({ chatPreview, username, onSendMessage }) {
+export function ChatView({ chatPreview, username }) {
   const [chatLog, setChatLog] = useState([]);
   const [message, setMessage] = useState("");
   const [ws, setWs] = new useState();
@@ -58,7 +58,6 @@ export function ChatView({ chatPreview, username, onSendMessage }) {
             type="text"
             autoFocus={true}
             value={message}
-            //State is set to the user input inside the forms input field
             onChange={(e) => setMessage(e.target.value)}
           />
           <button>Send</button>

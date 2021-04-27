@@ -42,7 +42,6 @@ describe("chat view page", () => {
   });
 
   it("submits a new message", async () => {
-    const onSendMessage = jest.fn();
     const container = await renderForTest(<ChatView chatPreview={[]} />);
     Simulate.change(container.querySelector("input"), {
       target: { value: "Hello World" },

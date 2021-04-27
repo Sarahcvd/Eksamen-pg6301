@@ -1,6 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import { act, Simulate } from "react-dom/test-utils";
+import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
 import { LoginPage } from "../client/LoginPage";
 
@@ -12,16 +12,17 @@ async function renderForTest(child) {
   return container;
 }
 
+const googleIdentityProvider = {
+  discoveryURL: "https://accounts.google.com/.well-known/openid-configuration",
+  client_id:
+    "916384078084-0vdudp3eluljf617umqmtoeuu870iru0.apps.googleusercontent.com",
+};
+
 describe("login page", () => {
-  xit("can log in", async () => {
-    const identityProvider = jest.fn();
+  it("display login page", async () => {
     const container = await renderForTest(
-      <LoginPage userApi={{ identityProvider }} />
+      <LoginPage identityProvider={{ googleIdentityProvider }} />
     );
-    Simulate.change(container.querySelector("input"), {
-      target: { value: "test" },
-    });
-    Simulate.submit(container.querySelector("form"));
-    expect(loginUser).toBeCalledWith({ username: "test", password: "" });
+    expect(container.innerHTML).toMatchSnapshot();
   });
 });
